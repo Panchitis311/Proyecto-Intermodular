@@ -12,15 +12,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class InicioController {
 
-    @FXML private TextField txtDni;
+    @FXML
+    private TextField txtDni;
     @FXML private PasswordField txtPassword;
 
     @FXML
@@ -46,7 +48,7 @@ public class InicioController {
     try {
         Usuario usuario = service.login(dni, password);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ProductoService_view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Productos_view.fxml"));
         Parent root = loader.load();
         ProductoController controller = loader.getController();
         controller.setUsuario(usuario);
