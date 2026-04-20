@@ -6,17 +6,17 @@ import dam.code.models.utils.Rol;
 import dam.code.service.UsuarioService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class RegistroController {
 
     @FXML private TextField txtNombre;
     @FXML private TextField txtApellidos;
-    @FXML private TextField txtEmail;
+    @FXML
+    private TextField txtEmail;
     @FXML private TextField txtTelefono;
     @FXML private PasswordField txtPassword;
     @FXML private PasswordField txtPasswordRepit;
