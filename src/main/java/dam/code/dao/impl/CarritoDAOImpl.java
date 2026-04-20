@@ -1,4 +1,4 @@
 package dam.code.dao.impl;
 
-public class ExampleDAOImpl {
+public class CarritoDAOImpl {
 }
