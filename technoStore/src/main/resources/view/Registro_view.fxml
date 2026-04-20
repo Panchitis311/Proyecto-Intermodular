@@ -11,8 +11,12 @@
       styleClass="container">
 
     <Label text="Registro de Usuario" styleClass="title"/>
+<<<<<<< HEAD
 
     <TextField fx:id="txtDni" promptText="DNI"/>
+=======
+    <TextField fx:id="txtDNI" promptText="DNI" />
+>>>>>>> 4c75d8f7368821d57839a1df7231a1d0d0f6e2d9
     <TextField fx:id="txtNombre" promptText="Nombre" />
     <TextField fx:id="txtApellidos" promptText="Nombre" />
     <TextField fx:id="txtEmail" promptText="Email" />
