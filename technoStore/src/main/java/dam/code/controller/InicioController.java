@@ -41,28 +41,28 @@ public class InicioController {
             lblMensaje.setStyle("-fx-text-fill: red");
             return;
         }
+        String dni =  txtDni.getText();
+        String password = txtPassword.getText();
+        try {
+            Usuario usuario = service.login(dni, password);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Productos_view.fxml"));
+            Parent root = loader.load();
+            ProductoController controller = loader.getController();
+            controller.setUsuario(usuario);
+            controller.setProductoService(new ProductoService());
+            controller.setCarritoService(new CarritoService());
+
+            Stage stage = (Stage) txtDni.getScene().getWindow();
+            stage.setResizable(false);
+            stage.setWidth(800);
+            stage.setHeight(600);
+            stage.setScene(new Scene(root));
+        } catch (ProductoException | IOException | UsuarioException e) {
+            mostrarError(e.getMessage());
+        }
     }
 
-    String dni =  txtDni.getText();
-    String password = txtPassword.getText();
-    try {
-        Usuario usuario = service.login(dni, password);
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Productos_view.fxml"));
-        Parent root = loader.load();
-        ProductoController controller = loader.getController();
-        controller.setUsuario(usuario);
-        controller.setProductoService(new ProductoService());
-        controller.setCarritoService(new CarritoService());
-
-        Stage stage = (Stage) txtDni.getScene().getWindow();
-        stage.setResizable(false);
-        stage.setWidth(800);
-        stage.setHeight(600);
-        stage.setScene(new Scene(root));
-    } catch (ProductoException | IOException | UsuarioException e) {
-        mostrarError(e.getMessage());
-    }
 
     @FXML
     public void registro() {
