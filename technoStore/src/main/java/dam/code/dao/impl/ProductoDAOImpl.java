@@ -17,7 +17,7 @@ public class ProductoDAOImpl implements ProductoDAO {
     }
 
     @Override
-    public void guardar(Producto producto) {
+    public void registrar(Producto producto) {
 
     }
 

@@ -15,7 +15,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     @Override
-    public void guardar(Usuario usuario) {
+    public void registrar(Usuario usuario, String password) {
 
     }
 

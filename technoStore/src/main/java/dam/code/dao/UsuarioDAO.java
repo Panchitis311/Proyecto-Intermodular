@@ -7,7 +7,7 @@ public interface UsuarioDAO {
 
     Usuario buscarPorEmail(String email);
 
-    void guardar(Usuario usuario);
+    void registrar(Usuario usuario, String password);
 
     void cargar(Usuario usuario);
 

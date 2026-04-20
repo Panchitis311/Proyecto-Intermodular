@@ -9,7 +9,7 @@ public interface ProductoDAO {
 
     Producto productoPorId(int id);
 
-    void guardar(Producto producto);
+    void registrar(Producto producto);
 
     void cargar(Producto producto);
 
