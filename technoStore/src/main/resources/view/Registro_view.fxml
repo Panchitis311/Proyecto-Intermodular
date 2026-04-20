@@ -11,7 +11,7 @@
       styleClass="container">
 
     <Label text="Registro de Usuario" styleClass="title"/>
-
+    <TextField fx:id="txtDNI" promptText="DNI" />
     <TextField fx:id="txtNombre" promptText="Nombre" />
     <TextField fx:id="txtApellidos" promptText="Nombre" />
     <TextField fx:id="txtEmail" promptText="Email" />

@@ -6,17 +6,17 @@ import dam.code.models.utils.Rol;
 import dam.code.service.UsuarioService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class RegistroController {
-
+    @FXML private TextField txtDNI;
     @FXML private TextField txtNombre;
     @FXML private TextField txtApellidos;
-    @FXML
-    private TextField txtEmail;
+    @FXML private TextField txtEmail;
     @FXML private TextField txtTelefono;
     @FXML private PasswordField txtPassword;
     @FXML private PasswordField txtPasswordRepit;
@@ -46,9 +46,11 @@ public class RegistroController {
                     return;
                 }
                 Usuario usuario = new Usuario(
+                        txtDNI.getText(),
                         txtNombre.getText(),
                         txtApellidos.getText(),
                         txtEmail.getText(),
+                        Integer.parseInt(txtTelefono.getText()),
                         comboRol.getValue()
                 );
                 service.registrar(usuario, txtPassword.getText());
@@ -66,6 +68,7 @@ public class RegistroController {
     }
 
     private void limpiarCampos() {
+        txtDNI.clear();
         txtNombre.clear();
         txtApellidos.clear();
         txtEmail.clear();
@@ -84,7 +87,7 @@ public class RegistroController {
             InicioController controller = loader.getController();
             controller.setUsuarioService(service);
 
-            Stage stage = (Stage) txtNombre.getScene().getWindow();
+            Stage stage = (Stage) txtDNI.getScene().getWindow();
             stage.setResizable(false);
             stage.setWidth(400);
             stage.setHeight(600);
@@ -96,7 +99,8 @@ public class RegistroController {
     }
 
     private boolean validarCampos() {
-        return !txtNombre.getText().isEmpty()
+        return !txtDNI.getText().isEmpty()
+                && !txtNombre.getText().isEmpty()
                 && !txtApellidos.getText().isEmpty()
                 && !txtEmail.getText().isEmpty()
                 && !txtPassword.getText().isEmpty()
