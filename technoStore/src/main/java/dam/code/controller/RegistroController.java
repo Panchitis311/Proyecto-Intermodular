@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class RegistroController {
+
     @FXML private TextField txtDNI;
     @FXML private TextField txtNombre;
     @FXML private TextField txtApellidos;
