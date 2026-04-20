@@ -1,4 +1,7 @@
 package dam.code.exceptions;
 
-public class UsuarioException {
+public class UsuarioException extends Exception {
+    public UsuarioException(String message) {
+        super(message);
+    }
 }
