@@ -34,4 +34,8 @@ public class ProductoService {
             throw new ProductoException("El stock no puede ser negativo");
         }
     }
+
+    public ObservableList<Producto> obtenerProductosPorUsuario(int idUsuario) throws ProductoException {
+        return FXCollections.observableArrayList(productoDAO.obtenerProductosPorUsuario(idUsuario));
+    }
 }
