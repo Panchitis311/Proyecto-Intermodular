@@ -1,17 +1,35 @@
 package dam.code;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class AppMain {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import dam.code.controller.InicioController;
+import dam.code.service.UsuarioService;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+public class AppMain extends Application {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        UsuarioService service = new UsuarioService();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Inicio_view.fxml"));
+
+        Parent root = loader.load();
+
+        InicioController controller = loader.getController();
+        controller.setUsuarioService(service);
+
+        stage.setScene(new Scene(root));
+        stage.setTitle("technoStore");
+        stage.setResizable(false);
+        stage.setWidth(800);
+        stage.setHeight(600);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }

@@ -7,11 +7,7 @@ import java.util.List;
 public interface CarritoDAO {
     void addProducto(int usuarioId, int productoId, int cantidad);
 
-    void cambiarCantidad(int usuarioId, int productoId, int cantidad);
+    void eliminarProducto(int usuarioId, int productoId);
 
-    void borrarProducto(int usuarioId, int productoId);
-
-    void limpiarCarrito (int usuarioId);
-
-    List<CarritoItem> buscarCarritoPorUsuario(int usuarioId);
+    List<CarritoItem> getCarrito(int usuarioId);
 }

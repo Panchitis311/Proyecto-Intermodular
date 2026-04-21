@@ -1,21 +1,16 @@
 package dam.code.dao;
 
+import dam.code.exceptions.ProductoException;
 import dam.code.models.Producto;
 
 import java.util.List;
 
 public interface ProductoDAO {
-    List<Producto> listarProductos();
+    void registrar(Producto producto) throws ProductoException;
 
-    Producto productoPorId(int id);
+    void borrar(int id) throws ProductoException;
 
-    void registrar(Producto producto);
+    List<Producto> findAll() throws ProductoException;
 
-    void cargar(Producto producto);
-
-    void borrar(int id);
-
-    List<Producto> buscarPorCategoria(String categoria);
-
-    List<Producto> buscarPorNombre(String nombre);
+    Producto findById(int id) throws ProductoException;
 }
